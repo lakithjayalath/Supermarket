@@ -30,13 +30,11 @@ public class BillProductEntity implements Serializable {
 //	private String productname;
 	
 	@ManyToOne
-	@MapsId("bill_no")
-	@JoinColumn(name = "bill_no", referencedColumnName = "bill_no",insertable = false,updatable = false)
+	@JoinColumn(name = "billno", referencedColumnName = "bill_no",insertable = false,updatable = false)
 	private BillEntity bill;
 	
 	@ManyToOne
-	@MapsId("product_id")
-	@JoinColumn(name = "product_id", referencedColumnName = "product_id",insertable = false,updatable = false)
+	@JoinColumn(name = "productid", referencedColumnName = "product_id",insertable = false,updatable = false)
 	private ProductEntity product;
 	
 	@Column(name = "quantity")

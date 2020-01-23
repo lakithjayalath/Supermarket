@@ -32,7 +32,7 @@ public class BillEntity implements Serializable{
 	private float totalprice;
 	
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
+	@JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
 	private Customer customer;
 	
 //	@OneToMany(mappedBy = "bills", cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
