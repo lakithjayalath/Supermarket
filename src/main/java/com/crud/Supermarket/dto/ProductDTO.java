@@ -1,39 +1,45 @@
 package com.crud.Supermarket.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductDTO {
 
 	private int product_id;
-	private String productname;
+	private String product_name;
 	private float price;
 	private int quantity;
 	private String category;
+//	private List<BillDTO> bill = new ArrayList<>();
 	
 	public ProductDTO() {
 		
 	}
 
-	public ProductDTO(int product_id, String productname, float price, int quantity, String category) {
+	public ProductDTO(int product_id, String product_name, float price, int quantity, String category) {
+		super();
 		this.product_id = product_id;
-		this.productname = productname;
+		this.product_name = product_name;
 		this.price = price;
 		this.quantity = quantity;
 		this.category = category;
 	}
-
+	
 	public int getProduct_id() {
 		return product_id;
 	}
+
 
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
 	}
 
-	public String getProductname() {
-		return productname;
+	public String getProduct_name() {
+		return product_name;
 	}
 
-	public void setProductname(String productname) {
-		this.productname = productname;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 
 	public float getPrice() {
@@ -62,8 +68,8 @@ public class ProductDTO {
 
 	@Override
 	public String toString() {
-		return "ProductDTO [product_id=" + product_id + ", productname=" + productname + ", price=" + price
+		return "ProductDTO [product_id=" + product_id + ", product_name=" + product_name + ", price=" + price
 				+ ", quantity=" + quantity + ", category=" + category + "]";
 	}
-	
+
 }

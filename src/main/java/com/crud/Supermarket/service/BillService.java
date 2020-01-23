@@ -131,6 +131,21 @@ public class BillService {
 		return id;
 	}
 	
+//	public String createBill(BillDTO entity) {
+//		Customer customer = customerRepository.getOne(entity.getCustomer_id());
+//		ProductEntity product = productRepository.getOne(entity.getProduct_id());
+//		
+//		if(entity.getBill_no()!=null && entity.getProduct_id()!=0) {
+//			Optional<BillEntity> bill = billRepository.findById(entity.getBill_no());
+//			
+//			if(bill.isPresent()) {
+//				BillEntity newEntity = bill.get();
+//				
+//				newEntity.setBill_no(entity.getBill_no());
+//			}
+//		}
+//	}
+	
 	public void deleteBillById(String id) throws RecordNotFoundException {
 		Optional<BillEntity> bill = billRepository.findById(id);
 		

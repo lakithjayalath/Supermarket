@@ -12,13 +12,16 @@ public class BillDTO {
 	private String customer_id;
 	private int product_id;
 	private float totalPrice;
+//	private int bill_quantity;
+//	private List<ProductDTO> products = new ArrayList<>();
 	private List<BillProductDTO> billProducts = new ArrayList<>();
 	
 	public BillDTO() {
 
 	}
-	
-	public BillDTO(String bill_no, String customer_id, int product_id, float totalPrice, List<BillProductDTO> billProducts) {
+
+	public BillDTO(String bill_no, String customer_id, int product_id, float totalPrice,
+			List<BillProductDTO> billProducts) {
 		super();
 		this.bill_no = bill_no;
 		this.customer_id = customer_id;
@@ -51,20 +54,20 @@ public class BillDTO {
 		this.totalPrice = totalPrice;
 	}
 
-	public List<BillProductDTO> getBillProducts() {
-		return billProducts;
-	}
-
-	public void setBillProducts(List<BillProductDTO> billProducts) {
-		this.billProducts = billProducts;
-	}
-
 	public int getProduct_id() {
 		return product_id;
 	}
 
 	public void setProduct_id(int product_id) {
 		this.product_id = product_id;
+	}
+
+	public List<BillProductDTO> getBillProducts() {
+		return billProducts;
+	}
+
+	public void setBillProducts(List<BillProductDTO> billProducts) {
+		this.billProducts = billProducts;
 	}
 
 	@Override

@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,7 +25,6 @@ import org.hibernate.annotations.ManyToAny;
 public class BillEntity implements Serializable{
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "bill_no", unique = true, nullable = false)
 	private String bill_no;
 	
@@ -34,11 +35,19 @@ public class BillEntity implements Serializable{
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
-//	@OneToMany(mappedBy = "bill", cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+//	@OneToMany(mappedBy = "bills", cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
 //	private ProductEntity product;
 
+//	@OneToMany(mappedBy = "bills", cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+//	private List<ProductEntity> products = new ArrayList<>();
+	
 	@OneToMany(mappedBy = "bill", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	private List<BillProductEntity> billProduct = new ArrayList<>();
+	
+//	@ManyToMany(cascade = { CascadeType.ALL})
+//	@JoinTable(name = "billProducts", joinColumns = { @JoinColumn(name = "bill_no")}, inverseJoinColumns = { @JoinColumn(name = "product_id")})
+//	private List<ProductEntity> products = new ArrayList<>();
+	
 	
 	public BillEntity() {
 		
@@ -67,14 +76,6 @@ public class BillEntity implements Serializable{
 		this.totalprice = totalprice;
 	}
 
-	public List<BillProductEntity> getBillProduct() {
-		return billProduct;
-	}
-
-	public void setBillProduct(List<BillProductEntity> billProduct) {
-		this.billProduct = billProduct;
-	}
-
 	public float getTotalPrice() {
 		return totalprice;
 	}
@@ -99,12 +100,50 @@ public class BillEntity implements Serializable{
 		this.customer = customer;
 	}
 
+//	public List<ProductEntity> getProducts() {
+//		return products;
+//	}
+//
+//	public void setProducts(List<ProductEntity> products) {
+//		this.products = products;
+//	}
+
+//	public ProductEntity getProduct() {
+//		return product;
+//	}
+//
+//	public void setProduct(ProductEntity product) {
+//		this.product = product;
+//	}
+	
+	
+
+	public List<BillProductEntity> getBillProduct() {
+		return billProduct;
+	}
+
+	public void setBillProduct(List<BillProductEntity> billProduct) {
+		this.billProduct = billProduct;
+	}
+
 	@Override
 	public String toString() {
 		return "BillEntity [bill_no=" + bill_no + ", totalprice=" + totalprice + ", customer=" + customer
 				+ ", billProduct=" + billProduct + "]";
 	}
 
+//	@Override
+//	public String toString() {
+//		return "BillEntity [bill_no=" + bill_no + ", totalprice=" + totalprice + ", customer=" + customer
+//				+ ", products=" + products + ", billProduct=" + billProduct + "]";
+//	}
+
+//	@Override
+//	public String toString() {
+//		return "BillEntity [bill_no=" + bill_no + ", totalprice=" + totalprice + ", customer=" + customer + ", product="
+//				+ product + ", billProduct=" + billProduct + "]";
+//	}
 	
 	
+
 }

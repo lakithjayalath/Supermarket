@@ -2,12 +2,14 @@ package com.crud.Supermarket.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class BillProductPK implements Serializable{
 
 	private String billno;
+
 	private int productid;
 	
 	public BillProductPK() {
@@ -40,7 +42,5 @@ public class BillProductPK implements Serializable{
 	public String toString() {
 		return "BillProductPK [billno=" + billno + ", productid=" + productid + "]";
 	}
-
-	
 
 }

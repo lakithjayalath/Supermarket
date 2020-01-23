@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -28,16 +29,18 @@ public class BillProductEntity implements Serializable {
 //	@Column(name = "productname")
 //	private String productname;
 	
-	@Column(name = "quantity")
-	private int quantity;
-	
 	@ManyToOne
+	@MapsId("bill_no")
 	@JoinColumn(name = "bill_no", referencedColumnName = "bill_no",insertable = false,updatable = false)
 	private BillEntity bill;
 	
 	@ManyToOne
+	@MapsId("product_id")
 	@JoinColumn(name = "product_id", referencedColumnName = "product_id",insertable = false,updatable = false)
 	private ProductEntity product;
+	
+	@Column(name = "quantity")
+	private int quantity;
 	
 	public BillProductEntity() {
 		
@@ -53,11 +56,11 @@ public class BillProductEntity implements Serializable {
 		this.quantity = quantity;
 	}
 	
-//	public BillProductEntity( int quantity, ProductEntity product, BillEntity bill) {
-//		this.quantity = quantity;
-//		this.product = product;
-//		this.bill = bill;
-//	}
+	public BillProductEntity( int quantity, ProductEntity product, BillEntity bill) {
+		this.quantity = quantity;
+		this.product = product;
+		this.bill = bill;
+	}
 
 //	public BillProductEntity( String bill_no,int product_id, int quantity) {
 //		super();

@@ -49,7 +49,7 @@ public class ProductService {
 			if(product.isPresent()) {
 				ProductEntity newEntity = product.get();
 				newEntity.setProduct_id(entity.getProduct_id());
-				newEntity.setProductname(entity.getProductname());
+				newEntity.setProduct_name(entity.getProduct_name());
 				newEntity.setPrice(entity.getPrice());
 				newEntity.setQuantity(entity.getQuantity());
 				newEntity.setCategory(entity.getCategory());
